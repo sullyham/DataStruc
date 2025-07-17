@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -33,32 +32,45 @@ public class Summer {
         }
     }
     public static List<List<Integer>> threeSum(int[] nums){
-        List<List<Integer>> list = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            int target = -nums[i];
-            int left = 1;
-            int right = nums.length -1;
-            while(left > right){
-                if(nums[i] == nums[left]){
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
 
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0){
+                // This is to prevent further looping for no reason, as we only want things that sum to zero so anything positive gtfo
+                break;
+            }
+            if (i > 0 && nums[i] == nums[i - 1]){
+                // We don't want duplicate numbers, so ignore it, if {0,1,1,2} and i = 2
+                // we skip it because it is equal to i - 1! so no duplicates, works cuz its sorted!
+                continue;
+            }
+
+            int left = i + 1; // this is where two sum starts as we already have our first digit
+            int right = nums.length - 1; // end of array
+            while (left < right) { // As long as there is no cross over
+                int sum = nums[i] + nums[left] + nums[right]; //total sum
+                if (sum > 0) { // cuz we want smaller numbers
+                    right--;
+                } else if (sum < 0) { // cuz we want bigger numbers
+                    left++;
+                } else {
+                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));// add all three numbers
+                    left++;//move on
+                    right--;//move on
+                    while (left < right && nums[left] == nums[left - 1]) {
+                        left++;// then just keeps updating the left until there are no more duplicates
+                    }
                 }
             }
         }
-        return list;
+        return res;
     }
     public static void main(String[] args) {
-        int[] arr = {-1,0,1,2,-1,-4};
+        int[] arr = {0,0,0,0};
         Arrays.sort(arr);
         List<List<Integer>> list = threeSum(arr);
-        for (int i = 0; i < list.size() -1 ; i++) {
-            List<Integer> list1 = list.get(i);
-            for (int j = 0; j < list1.size(); j++) {
-                if(j == list1.size()-1){
-                    System.out.println();
-                }
-                System.out.print(list1.get(j) + " ");
-            }
-        }
+        System.out.println(list.size());
 
     }
 }
