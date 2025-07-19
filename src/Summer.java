@@ -6,20 +6,27 @@ import java.util.List;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Summer {
+    public static int factorial(int number){
+        if(number == 1){
+            return 1;
+        }
+        else {
+            System.out.println(number + " * factorial(" + (number-1) + ") ");
+            return number * factorial(number - 1);
+        }
+    }
+    public static int sumtoone(int n){
+        if(n == 1){
+            return 1;
+        }
+        else{
+            return n + sumtoone(n -1);
+        }
+    }
     public static void main(String[] args) {
 
-            School one = new School(Mood.BAD,49,"MET");
-            School two = new School(Mood.BAD,48,"HazleDale");
-        School three = new School(Mood.BAD,999,"Silent Hill");
-            List<School> list = new ArrayList<>();
-            list.add(one);
-            list.add(two);
-            list.add(three);
-            Collections.sort(list);
-            System.out.println("Our list of schools, ranked by cost :)");
-            for(School school: list){
-                System.out.println(school.name);
-            }
+            System.out.println(factorial(4));
+            System.out.println(sumtoone(2));
 
 
 
