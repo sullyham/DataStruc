@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -23,10 +21,58 @@ public class Summer {
             return n + sumtoone(n -1);
         }
     }
-    public static void main(String[] args) {
+    public static void deep(int depth){
+        if(depth == 0){
+        }
+        else{
 
-            System.out.println(factorial(4));
-            System.out.println(sumtoone(2));
+            deep(depth -1);
+            for (int i = 0; i < depth; i++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    public static int sumarray(int[] arr, int index){
+        int start = index;
+        if(index >= arr.length - 1){
+            return arr[index];
+        }
+        return arr[index] + sumarray(arr, index + 1);
+    }
+    public static int max(int[] arr, int index){
+        if(index == arr.length -1){
+
+        }
+        else if(arr[index] > max(arr, index +1)){
+            return arr[index];
+        }
+        else{
+            return max(arr, index + 1);
+        }
+        return 0;
+    }
+    public static String reverse(String str){
+
+        if(str.isEmpty()){
+            return "";
+        }
+        return str.substring(str.length() -1) + reverse(str.substring(0, str.length() - 1));
+    }
+    public static Boolean palindrome(String str){
+        if(str.length() == 1 || str.isEmpty()){
+            return true;
+        }
+        if(str.charAt(0) != str.charAt(str.length() -1 )){
+            return false;
+        }
+        return palindrome(str.substring(1, str.length() -1 ));
+
+    }
+    public List<List<Integer>> subsets(int[] nums){
+
+    }
+    public static void main(String[] args) {
 
 
 
