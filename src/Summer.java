@@ -21,6 +21,11 @@ public class Summer {
             return n + sumtoone(n -1);
         }
     }
+
+    /**
+     *
+     * @param depth how deep you want the recursion to be
+     */
     public static void deep(int depth){
         if(depth == 0){
         }
@@ -33,6 +38,13 @@ public class Summer {
             System.out.println();
         }
     }
+
+    /**
+     *
+     * @param arr the array
+     * @param index the starting index
+     * @return returns, max
+     */
     public static int sumarray(int[] arr, int index){
         int start = index;
         if(index >= arr.length - 1){
@@ -69,10 +81,17 @@ public class Summer {
         return palindrome(str.substring(1, str.length() -1 ));
 
     }
-    public List<List<Integer>> subsets(int[] nums){
-
+    public static void print(Printable thing) {
+        thing.print();
     }
+
     public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(3);
+        list.DisplayList();
 
 
 
