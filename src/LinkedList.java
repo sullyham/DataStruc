@@ -99,6 +99,36 @@ public class LinkedList<T> {
             before.next.next = curr;
         }
     }
+    public T get(int index){
+        Node<T> traverse = head;
+        int iter = 0;
+        if(index < 0 || index > getSize()){
+            System.out.println(index + " is out of bounds!");
+            throw(new NullPointerException());
+        }
+        while(iter != index){
+            traverse = traverse.next;
+            iter++;
+        }
+        return traverse.getData();
+
+    }
+    public T set(int index, T data){
+        T old = get(index);
+      return old;
+    }
+    public boolean contains(T data ){
+        return false;
+    }
+    public int indexOf(T data){
+        return 0;
+    }
+    public void clear(){
+
+    }
+    public boolean isEmpty(){
+        return false;
+    }
     public void addFirst(T data){
         Node<T> temp = head;
         head = new Node<>(data);

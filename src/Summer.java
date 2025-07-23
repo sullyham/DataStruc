@@ -91,6 +91,9 @@ public class Summer {
        list.add(3,3);
        list.add(4,4);
         list.DisplayList();
+        System.out.println();
+
+        System.out.println("The object in the 1rd position is " + list.get(0));
 
 
 
