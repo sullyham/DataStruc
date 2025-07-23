@@ -15,6 +15,59 @@ public class LinkedList<T> {
         }
         return size;
     }
+    public void remove(int index){
+        Node<T> traverse = head;
+        if(index < 0 || index > getSize()){
+            System.out.println(index + " is out of bounds!");
+            throw(new IndexOutOfBoundsException());
+        }
+        int trav = 0;
+        if(index == 0) {
+            head = traverse.next;
+            return;
+        }
+        while(trav != index -1){
+            trav++;
+            traverse = traverse.next;
+        }
+        Node<T> before = traverse;
+        if(traverse.next.next != null){
+            Node<T> after = traverse.next.next;
+            before.next = after;
+        }
+        else{
+            before.next = null;
+        }
+    }
+    public void removeobject(T data){
+        Node<T> traverse = head;
+        if(traverse.getData().equals(data)){
+            Node<T> temp = traverse.next;
+            head = temp;
+            return;
+        }
+            while (traverse.next != null) {
+                if (traverse.next.getData() == data) {
+                    System.out.println(traverse.next.getData() + " has been found!");
+                    break;
+                }
+                traverse = traverse.next;
+            }
+            if (traverse.next.getData() != data) {
+                throw (new BadMoodException("Object doesn't exist!"));
+            }
+            Node<T> before = traverse;
+            if(traverse.next.next != null){
+                Node<T> after = traverse.next.next;
+                before.next = after;
+                return;
+            }
+            before.next = null;
+
+
+
+
+    }
     public void add(T data,int index) throws NullPointerException{
         if(head == null && index == 0){
             addFirst(data);

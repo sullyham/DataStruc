@@ -86,9 +86,10 @@ public class Summer {
 
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>(1);
-        list.addLast(3);
-        list.addLast(4);
-        list.add(2,1);
+       list.add(2,1);
+       list.add(3,2);
+       list.add(3,3);
+       list.add(4,4);
         list.DisplayList();
 
 
