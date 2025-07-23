@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -87,11 +86,11 @@ public class Summer {
 
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(3);
+        list.addLast(3);
+        list.addLast(4);
+        list.add(2,1);
         list.DisplayList();
+
 
 
 
