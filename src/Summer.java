@@ -1,99 +1,23 @@
 
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Summer {
-    public static int factorial(int number){
-        if(number == 1){
-            return 1;
-        }
-        else {
-            System.out.println(number + " * factorial(" + (number-1) + ") ");
-            return number * factorial(number - 1);
-        }
-    }
-    public static int sumtoone(int n){
-        if(n == 1){
-            return 1;
-        }
-        else{
-            return n + sumtoone(n -1);
-        }
-    }
-
-    /**
-     *
-     * @param depth how deep you want the recursion to be
-     */
-    public static void deep(int depth){
-        if(depth == 0){
-        }
-        else{
-
-            deep(depth -1);
-            for (int i = 0; i < depth; i++) {
-                System.out.print("*");
+    public static int maxArea(int[] nums) {
+        int distance = 0;
+        int max = 0;
+        for (int i = 0; i < nums.length -1 ; i++) {
+            for (int j = i + 1; j < nums.length ; j++) {
+                int small = Math.min(nums[i],nums[j]);
+                distance = small * (j - i);
+                if(distance > max){
+                    max = distance;
+                }
             }
-            System.out.println();
         }
+        return max;
     }
-
-    /**
-     *
-     * @param arr the array
-     * @param index the starting index
-     * @return returns, max
-     */
-    public static int sumarray(int[] arr, int index){
-        int start = index;
-        if(index >= arr.length - 1){
-            return arr[index];
-        }
-        return arr[index] + sumarray(arr, index + 1);
-    }
-    public static int max(int[] arr, int index){
-        if(index == arr.length -1){
-
-        }
-        else if(arr[index] > max(arr, index +1)){
-            return arr[index];
-        }
-        else{
-            return max(arr, index + 1);
-        }
-        return 0;
-    }
-    public static String reverse(String str){
-
-        if(str.isEmpty()){
-            return "";
-        }
-        return str.substring(str.length() -1) + reverse(str.substring(0, str.length() - 1));
-    }
-    public static Boolean palindrome(String str){
-        if(str.length() == 1 || str.isEmpty()){
-            return true;
-        }
-        if(str.charAt(0) != str.charAt(str.length() -1 )){
-            return false;
-        }
-        return palindrome(str.substring(1, str.length() -1 ));
-
-    }
-    public static void print(Printable thing) {
-        thing.print();
-    }
-
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>(1);
-       list.add(2,1);
-       list.add(3,2);
-       list.add(3,3);
-       list.add(4,4);
-        list.DisplayList();
-        System.out.println();
-
-        System.out.println("The object in the 1rd position is " + list.get(0));
+        public static void main(String[] args) {
+        int[] area = {1,8,6,2,5,4,8,3,7};
+       System.out.println(maxArea(area));
 
 
 
